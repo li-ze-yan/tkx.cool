@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Comforter&family=GFS+Didot&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+    width: 100%;
+    color: #27272a;
+    scroll-behavior: smooth;
+    letter-spacing: 0.025em;
+    font-family: 'Noto Sans TC', 'GFS Didot', serif;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
