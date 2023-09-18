@@ -9,8 +9,8 @@ import { cons_base_header } from "~/constants";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "tkx.cool" },
+    { name: "description", content: "Welcome to tkx.cool!" },
     { viewport: "width=device-width, initial-scale=1" },
     { charset: "utf-8" },
   ];
@@ -82,7 +82,7 @@ export default function Index() {
           }}
           initial="hidden"
           animate="show"
-          className="capitalize lg:text-5xl text-2xl text-center leading-snug relative z-0 before:absolute before:bg-icon-before-pattern  before:bg-no-repeat before:bg-contain before:-top-12 before:right-6 before:w-[159px] before:h-[212px] after:absolute after:bg-icon-after-pattern  after:bg-no-repeat after:bg-contain after:-top-9 after:left-2 after:w-[159px] after:h-[212px]"
+          className="capitalize lg:text-5xl text-2xl text-center leading-snug relative z-0 before:absolute before:bg-icon-before-pattern before:bg-no-repeat before:bg-contain before:-top-12 before:right-10 before:w-[159px] before:h-[212px] before:-z-10 after:absolute after:-z-10 after:bg-icon-after-pattern  after:bg-no-repeat after:bg-contain after:-top-9 after:left-2 after:w-[159px] after:h-[212px] select-none"
         >
           <motion.h1
             variants={{
@@ -109,6 +109,7 @@ export default function Index() {
                 y: -20,
               },
             }}
+            className="mt-3"
           >
             always dare to see it what it could be.
           </motion.h1>
