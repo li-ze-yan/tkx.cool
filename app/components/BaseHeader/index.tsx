@@ -3,6 +3,7 @@ import clsx from "clsx";
 import type { Variants } from "framer-motion";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { cons_base_header } from "~/constants";
 import type { IOptions } from "~/types";
 
@@ -35,7 +36,9 @@ const BaseHeader = () => {
         {menu.map((_: IOptions, index: number) => (
           <p
             key={`menu_${index}`}
-            className="flex gap-1 font-semibold cursor-pointer hover:text-sky-500"
+            className={twMerge(
+              "flex gap-1 font-semibold cursor-pointer hover:text-[#fe5769] transition-all duration-300 ease-linear relative before:absolute before:-bottom-[4px] before:left-0 before:w-full before:h-[2px] before:bg-[#fe5769] before:scale-x-0 before:origin-left before:transition-all before:duration-300 before:ease-linear hover:before:scale-100 before:will-change-transform before:rounded-full"
+            )}
             onClick={() => navigate(_.value)}
           >
             <motion.span
