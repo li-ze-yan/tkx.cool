@@ -21,7 +21,7 @@ const BaseHeader = () => {
   };
 
   return (
-    <div className="relative w-full pt-6 pb-20 sm:pb-24 lg:pb-32 lg:pt-8 flex items-center justify-between font-semibold text-sm leading-6">
+    <header className="relative w-full pt-6 pb-20 sm:pb-24 lg:pb-32 lg:pt-8 flex items-center justify-between font-semibold text-sm leading-6">
       <div
         className="flex gap-1 items-center cursor-pointer"
         onClick={() => navigate("/")}
@@ -189,7 +189,7 @@ const BaseHeader = () => {
           />
         )}
       </AnimatePresence>
-    </div>
+    </header>
   );
 };
 
