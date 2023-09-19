@@ -1,10 +1,7 @@
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
 import type { MetaFunction } from "@remix-run/node";
 import { useNavigate } from "@remix-run/react";
 import { motion } from "framer-motion";
-import { Suspense } from "react";
-import { CanvasLoader, SafeZone } from "~/components";
+import { SafeZone } from "~/components";
 import { cons_base_header } from "~/constants";
 
 export const meta: MetaFunction = () => {
@@ -14,31 +11,6 @@ export const meta: MetaFunction = () => {
     { viewport: "width=device-width, initial-scale=1" },
     { charset: "utf-8" },
   ];
-};
-
-const Computers = () => {
-  const computer = useGLTF("/model/junkrat/scene.gltf");
-
-  return (
-    <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
-      <spotLight
-        position={[0, 100, 100]}
-        angle={0.12}
-        penumbra={1}
-        intensity={1}
-        castShadow
-        shadow-mapSize={1024}
-      />
-      <pointLight intensity={1} />
-      <primitive
-        object={computer.scene}
-        scale={2.5}
-        position={[-2, -2.2, 0]}
-        rotation={[-0.01, 1.2, -0.1]}
-      />
-    </mesh>
-  );
 };
 
 export default function Index() {
@@ -210,36 +182,6 @@ export default function Index() {
           </div>
         </motion.button>
       </motion.div>
-
-      {/* <div className="w-full h-[50vh] relative z-0 text-white mt-10">
-        <video
-          src="/video/jb.mp4"
-          muted
-          loop
-          className="z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full object-cover h-full rounded-2xl"
-        />
-      </div> */}
-      <div className="flex justify-center items-center">
-        <div style={{ width: 800, height: 800 }}>
-          <Canvas
-            frameloop="demand"
-            // shadows
-            dpr={[1, 2]}
-            camera={{ position: [20, 3, 5], fov: 25 }}
-            gl={{ preserveDrawingBuffer: true }}
-          >
-            <Suspense fallback={<CanvasLoader />}>
-              <OrbitControls
-                enableZoom={false}
-                maxPolarAngle={Math.PI / 2}
-                minPolarAngle={Math.PI / 2}
-              />
-              <Computers />
-            </Suspense>
-            <Preload all />
-          </Canvas>
-        </div>
-      </div>
     </div>
   );
 }
