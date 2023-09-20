@@ -17,15 +17,15 @@ export default function Index() {
   const navigate = useNavigate();
   const { menu } = cons_base_header;
   return (
-    <div className="w-full">
-      <div className="absolute inset-0 bg-hero-pattern bg-center bg-cover bg-no-repeat bg-slate-50 -z-10">
+    <div className="w-full min-h-screen relative z-10">
+      <section className="absolute h-screen inset-0 bg-hero-pattern bg-center bg-cover bg-no-repeat bg-slate-50">
         <div
           className="absolute inset-0 bg-grid-slate-900/[0.04] bg-top-pattern"
           style={{
             WebkitMaskImage: "linear-gradient(to bottom, transparent, black)",
           }}
         ></div>
-      </div>
+      </section>
       <SafeZone>
         <motion.div
           variants={{
@@ -87,7 +87,7 @@ export default function Index() {
           </motion.h1>
         </motion.div>
       </SafeZone>
-      <motion.div
+      <motion.section
         variants={{
           show: {
             opacity: 1,
@@ -109,7 +109,7 @@ export default function Index() {
         initial="hidden"
         whileInView="show"
         animate="show"
-        className="flex justify-center items-center gap-4 mt-12"
+        className="flex justify-center items-center gap-4 mt-12 relative z-10"
       >
         <motion.button
           variants={{
@@ -181,7 +181,11 @@ export default function Index() {
             </motion.div>
           </div>
         </motion.button>
-      </motion.div>
+      </motion.section>
+      {/* 首页翻转的DOM */}
+      <section className="border border-[#f0f0f0] border-solid rounded-xl max-w-7xl mx-auto h-screen bg-white mt-10 hover:shadow-rounded transition-shadow duration-300 ease-smooth bg-transparent relative z-10">
+        11
+      </section>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 const SafeZone = (props: any) => {
-  return <div className="max-w-6xl mx-auto">{props.children}</div>;
+  return <section className="max-w-6xl mx-auto">{props.children}</section>;
 };
 
 export { SafeZone };

@@ -19,6 +19,13 @@ export default {
         "icon-before-pattern": "url('/img/common/titleIconBefore.svg')",
         "icon-after-pattern": "url('/img/common/titleIconAfter.svg')",
       },
+      boxShadow: {
+        rounded:
+          "0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008",
+      },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(0.215,0.610,0.355,1.000)",
+      },
     },
   },
   plugins: [],

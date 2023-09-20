@@ -3,9 +3,6 @@ import { useNavigate } from "@remix-run/react";
 const BaseFooter = () => {
   const navigate = useNavigate();
   return (
-    // <footer className="relative pt-6 lg:pt-8 flex items-center justify-between font-semibold text-sm leading-6">
-    //   111
-    // </footer>
     <footer className="mx-auto mt-32 w-full max-w-container px-4 sm:px-6 lg:px-8">
       <div className="border-t border-slate-900/5 py-10">
         <div

@@ -8,6 +8,7 @@
 html, body {
     width: 100%;
     color: #27272a;
+    background-color: #fafafa;
     scroll-behavior: smooth;
     letter-spacing: 0.025em;
     font-family: 'Noto Sans TC', 'GFS Didot', serif;
