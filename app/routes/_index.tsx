@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useNavigate } from "@remix-run/react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { SafeZone } from "~/components";
 import { cons_base_header } from "~/constants";
 
@@ -15,6 +15,8 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   const navigate = useNavigate();
+  const { scrollY } = useScroll();
+  const rotateX = useSpring(scrollY);
   const { menu } = cons_base_header;
   return (
     <div className="w-full min-h-screen">
@@ -183,9 +185,122 @@ export default function Index() {
         </motion.button>
       </motion.section>
       {/* 首页翻转的DOM */}
-      <section className="border-2 border-[#f0f0f0] border-solid rounded-xl max-w-7xl mx-auto mt-10 hover:shadow-rounded transition-shadow duration-300 ease-smooth bg-transparent relative z-10 box-border px-4 sm:px-6 md:px-8">
-        11
-      </section>
+      <motion.section
+        style={{
+          rotateX: -rotateX,
+          transformPerspective: 2000,
+        }}
+        className="border-2 border-[#f0f0f0] border-solid rounded-xl max-w-7xl mx-auto mt-10 shadow-rounded hover:shadow-hover-rounded transition-shadow duration-300 ease-smooth bg-transparent relative z-10 box-border p-2 sm:p-4 md:p-6 group/change origin-[top_center]"
+      >
+        <div className="flex justify-between items-center">
+          <ul className="flex lg:gap-2 gap-1 group">
+            <li className="lg:w-[12px] w-[10px] lg:h-[12px] h-[10px] border border-black/20 rounded-full relative">
+              <span className="absolute top-0 left-0 w-full h-full rounded-full bg-[#F36C5F] opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-linear"></span>
+            </li>
+            <li className="lg:w-[12px] w-[10px] lg:h-[12px] h-[10px] border border-black/20 rounded-full relative">
+              <span className="absolute top-0 left-0 w-full h-full rounded-full bg-[#F8BD4D] opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-linear"></span>
+            </li>
+            <li className="lg:w-[12px] w-[10px] lg:h-[12px] h-[10px] border border-black/20 rounded-full relative">
+              <span className="absolute top-0 left-0 w-full h-full rounded-full bg-[#53C14F] opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-linear"></span>
+            </li>
+          </ul>
+          <ul className="flex lg:gap-3 gap-1">
+            <li className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer">
+              <img
+                src="/img/common/lightning.svg"
+                alt=""
+                className="lg:w-4 w-3 lg:h-4 h-3"
+              />
+            </li>
+            <li className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer">
+              <img
+                src="/img/common/font.svg"
+                alt=""
+                className="lg:w-4 w-3 lg:h-4 h-3"
+              />
+            </li>
+            <li className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer">
+              <img
+                src="/img/common/picture.svg"
+                alt=""
+                className="lg:w-4 w-3 lg:h-4 h-3"
+              />
+            </li>
+            <li className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer">
+              <img
+                src="/img/common/folder.svg"
+                alt=""
+                className="lg:w-4 w-3 lg:h-4 h-3"
+              />
+            </li>
+          </ul>
+          <div className="pr-6">
+            <ul className="flex relative">
+              <div className="relative lg:translate-x-[24px] translate-x-[20px] group-hover/change:-translate-x-0 transition-transform duration-300 ease-linear">
+                <li className="lg:w-[30px] w-[24px] lg:h-[30px] lg:flex hidden h-[24px] absolute top-0 left-0 -translate-y-1/2 -translate-x-[320%] z-10 text-xs bg-[#a088cc] rounded-full text-white justify-center items-center border-2 border-white border-solid">
+                  J
+                </li>
+                <li className="lg:w-[30px] w-[24px] lg:h-[30px] h-[24px] lg:flex hidden absolute top-0 left-0 -translate-y-1/2 -translate-x-[240%] z-20 text-xs bg-[#7155ff] rounded-full text-white justify-center items-center border-2 border-white border-solid">
+                  M
+                </li>
+                <li className="lg:w-[30px] w-[24px] lg:h-[30px] h-[24px] absolute top-0 left-0 -translate-y-1/2 -translate-x-[160%] z-30 text-xs bg-[#4295ff] rounded-full text-white flex justify-center items-center border-2 border-white border-solid">
+                  S
+                </li>
+                <li className="lg:w-[30px] w-[24px] lg:h-[30px] h-[24px] absolute top-0 left-0 -translate-y-1/2 -translate-x-[80%] z-40 text-xs bg-[#30ba70] rounded-full text-white flex justify-center items-center border-2 border-white border-solid">
+                  Y
+                </li>
+              </div>
+              <li className="lg:w-[30px] w-[24px] lg:h-[30px] h-[24px] absolute top-0 left-0 -translate-y-1/2 z-50 rounded-full text-base flex justify-center items-center text-black leading-none bg-white border border-black/20 border-solid">
+                +
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="w-full shadow-rounded p-2 sm:p-4 md:p-6 bg-transparent rounded-xl mt-6">
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+          <p>
+            11111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          </p>
+        </div>
+      </motion.section>
     </div>
   );
 }
