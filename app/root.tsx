@@ -25,8 +25,8 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="px-4 sm:px-6 md:px-8 min-h-screen relative">
-        <div className="w-full">
+      <body className="px-4 sm:px-6 md:px-8 min-h-screen relative z-0">
+        <div className="w-full h-full">
           <BaseHeader />
           <AnimatePresence mode="wait">
             <motion.main

@@ -17,7 +17,7 @@ export default function Index() {
   const navigate = useNavigate();
   const { menu } = cons_base_header;
   return (
-    <div className="w-full min-h-screen relative z-10">
+    <div className="w-full min-h-screen">
       <section className="absolute h-screen inset-0 bg-hero-pattern bg-center bg-cover bg-no-repeat bg-slate-50">
         <div
           className="absolute inset-0 bg-grid-slate-900/[0.04] bg-top-pattern"
@@ -183,7 +183,7 @@ export default function Index() {
         </motion.button>
       </motion.section>
       {/* 首页翻转的DOM */}
-      <section className="border border-[#f0f0f0] border-solid rounded-xl max-w-7xl mx-auto h-screen bg-white mt-10 hover:shadow-rounded transition-shadow duration-300 ease-smooth bg-transparent relative z-10">
+      <section className="border-2 border-[#f0f0f0] border-solid rounded-xl max-w-7xl mx-auto mt-10 hover:shadow-rounded transition-shadow duration-300 ease-smooth bg-transparent relative z-10 box-border px-4 sm:px-6 md:px-8">
         11
       </section>
     </div>
