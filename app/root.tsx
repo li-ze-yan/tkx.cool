@@ -3,20 +3,17 @@ import {
   Links,
   LiveReload,
   Meta,
+  Outlet,
   Scripts,
   ScrollRestoration,
-  useLocation,
-  useOutlet,
 } from "@remix-run/react";
 import styles from "./tailwind.css";
 import { BaseFooter, BaseHeader } from "./components";
-import { AnimatePresence, motion } from "framer-motion";
+import { Suspense } from "react";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export default function App() {
-  const outlet = useOutlet();
-  const location = useLocation();
   return (
     <html lang="en">
       <head>
@@ -26,25 +23,14 @@ export default function App() {
         <Links />
       </head>
       <body className="px-4 sm:px-6 md:px-8 min-h-screen relative z-0 lg:text-base text-sm">
-        <div className="w-full h-full">
+        <Suspense fallback={null}>
           <BaseHeader />
-          <AnimatePresence mode="wait">
-            <motion.main
-              key={location?.pathname}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
-              transition={{ duration: 0.4, type: "tween" }}
-              layout
-            >
-              {outlet}
-            </motion.main>
-          </AnimatePresence>
+          <Outlet />
           <BaseFooter />
-        </div>
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </Suspense>
       </body>
     </html>
   );

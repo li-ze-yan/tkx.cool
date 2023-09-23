@@ -46,7 +46,6 @@ export default function Index() {
                   when: "beforeChildren",
                   delayChildren: 0.5,
                   staggerChildren: 0.5,
-                  delay: 1,
                 },
               },
               hidden: {
@@ -57,7 +56,6 @@ export default function Index() {
                   when: "beforeChildren",
                   delayChildren: 0.5,
                   staggerChildren: 0.5,
-                  delay: 1,
                 },
               },
             }}
@@ -100,23 +98,22 @@ export default function Index() {
           variants={{
             show: {
               opacity: 1,
+              y: 0,
               transition: {
                 duration: 0.3,
                 ease: "easeOut",
-                delay: 1,
               },
             },
             hidden: {
               opacity: 0,
+              y: -20,
               transition: {
                 duration: 0.3,
                 ease: "easeOut",
-                delay: 1,
               },
             },
           }}
           initial="hidden"
-          whileInView="show"
           animate="show"
           className="flex justify-center items-center gap-4 mt-12 relative z-10"
         >
@@ -317,7 +314,6 @@ export default function Index() {
                   stiffness: 100,
                   damping: 12,
                   ease: [0.215, 0.61, 0.355, 1.0],
-                  delay: 1,
                 },
               }}
             >
