@@ -25,7 +25,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="px-4 sm:px-6 md:px-8 min-h-screen relative z-0">
+      <body className="px-4 sm:px-6 md:px-8 min-h-screen relative z-0 lg:text-base text-sm">
         <div className="w-full h-full">
           <BaseHeader />
           <AnimatePresence mode="wait">

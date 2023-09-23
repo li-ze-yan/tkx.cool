@@ -20,14 +20,14 @@ export default function Index() {
   const { scrollYProgress } = useScroll({
     target: windowRef,
   });
-  const rotateX = useTransform(scrollYProgress, [0.15, 1], [0, -90], {
+  const rotateX = useTransform(scrollYProgress, [0.18, 1], [0, -90], {
     ease: easeOut,
   });
   const { menu } = cons_base_header;
   return (
     <section className="w-full min-h-screen" ref={windowRef}>
       <section>
-        <section className="absolute h-[137vh] inset-0 bg-hero-pattern bg-center bg-cover bg-no-repeat bg-slate-50">
+        <section className="absolute lg:h-[137vh] h-[90vh] inset-0 bg-hero-pattern bg-center bg-cover bg-no-repeat bg-slate-50">
           <div
             className="absolute inset-0 bg-grid-slate-900/[0.04] bg-top-pattern"
             style={{
@@ -264,9 +264,47 @@ export default function Index() {
             </ul>
           </div>
         </div>
-        <div className="w-full flex lg:gap-2 gap-0 shadow-rounded p-2 sm:p-4 md:p-12 bg-transparent rounded-xl mt-6">
+        <div className="lg:hidden grid grid-cols-1">
+          <div className="cols-span-1 w-full border-2 border-[#f0f0f0] border-solid rounded-lg shadow-rounded mt-3 px-2 py-2 flex items-center">
+            <ul className="grid grid-cols-2 w-4 h-2">
+              <li className="col-span-1 grid place-items-center leading-none">
+                <span className="w-[2px] h-[2px] bg-black rounded-full mb-[2px]" />
+              </li>
+              <li className="col-span-1 grid place-items-center leading-none">
+                <span className="w-[2px] h-[2px] bg-black rounded-full mb-[2px]" />
+              </li>
+              <li className="col-span-1 grid place-items-center leading-none">
+                <span className="w-[2px] h-[2px] bg-black rounded-full mb-[2px]" />
+              </li>
+              <li className="col-span-1 grid place-items-center leading-none">
+                <span className="w-[2px] h-[2px] bg-black rounded-full mb-[2px]" />
+              </li>
+              <li className="col-span-1 grid place-items-center leading-none">
+                <span className="w-[2px] h-[2px] bg-black rounded-full" />
+              </li>
+              <li className="col-span-1 grid place-items-center leading-none">
+                <span className="w-[2px] h-[2px] bg-black rounded-full" />
+              </li>
+            </ul>
+            <span className="pl-2">前端/设计/动效</span>
+          </div>
+          <div className="col-span-1 mt-4 border-2 border-[#f0f0f0] border-solid rounded-lg shadow-rounded overflow-hidden">
+            <video
+              src="/video/jb.mp4"
+              autoPlay
+              controls={false}
+              muted
+              loop
+              x5-playsinline="true"
+              playsInline
+              webkit-playsinline="true"
+              className="w-full h-full object-cover"
+            ></video>
+          </div>
+        </div>
+        <div className="w-full lg:flex hidden lg:gap-2 gap-0 shadow-rounded p-2 sm:p-4 md:p-12 bg-transparent rounded-xl mt-6">
           {/* left */}
-          <div className="lg:w-2/5 w-0 lg:block flex justify-center items-center pt-28 pb-40">
+          <div className="lg:w-2/5 w-0 pt-28 pb-40">
             <motion.p
               className="bg-[#7053ff] rounded-full text-white px-5 p-1 inline-block"
               initial={{ opacity: 0, y: 10 }}
@@ -324,6 +362,10 @@ export default function Index() {
                   autoPlay
                   controls={false}
                   muted
+                  loop
+                  x5-playsinline="true"
+                  playsInline
+                  webkit-playsinline="true"
                   className="w-full h-full object-cover"
                 ></video>
               </div>
@@ -331,78 +373,7 @@ export default function Index() {
           </div>
         </div>
       </motion.section>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
-      <p>1111111111111111</p>
+      <section className="w-full h-screen">haha</section>
     </section>
   );
 }
