@@ -139,7 +139,6 @@ export default function Index() {
                 variants={{
                   shake: {
                     rotate: [0, -10, 10, -10, 10, 0],
-                    transformOrigin: "center",
                   },
                 }}
                 transition={{
@@ -372,7 +371,23 @@ export default function Index() {
           </div>
         </div>
         <div className="lg:hidden grid grid-cols-1">
-          <div className="cols-span-1 w-full border-2 border-[#f0f0f0] border-solid rounded-lg shadow-rounded mt-3 px-2 py-2 flex items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+                damping: 12,
+                ease: [0.215, 0.61, 0.355, 1.0],
+                delay: 1,
+              },
+            }}
+            viewport={{ once: true }}
+            className="cols-span-1 w-full border-2 border-[#f0f0f0] border-solid rounded-lg shadow-rounded mt-3 px-2 py-2 flex items-center"
+          >
             <ul className="grid grid-cols-2 w-4 h-2">
               <li className="col-span-1 grid place-items-center leading-none">
                 <span className="w-[2px] h-[2px] bg-black rounded-full mb-[2px]" />
@@ -394,8 +409,24 @@ export default function Index() {
               </li>
             </ul>
             <span className="pl-2">前端/设计/动效</span>
-          </div>
-          <div className="col-span-1 mt-4 border-2 border-[#f0f0f0] border-solid rounded-lg shadow-rounded overflow-hidden">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 1,
+                type: "spring",
+                stiffness: 100,
+                damping: 12,
+                ease: [0.215, 0.61, 0.355, 1.0],
+                delay: 1,
+              },
+            }}
+            viewport={{ once: true }}
+            className="col-span-1 mt-4 border-2 border-[#f0f0f0] border-solid rounded-lg shadow-rounded overflow-hidden"
+          >
             <video
               src="/video/jb.mp4"
               autoPlay
@@ -407,7 +438,7 @@ export default function Index() {
               webkit-playsinline="true"
               className="w-full h-full object-cover"
             ></video>
-          </div>
+          </motion.div>
         </div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -530,7 +561,7 @@ export default function Index() {
                   },
                 }}
                 viewport={{ once: true }}
-                className="w-full h-full mt-5 border-2 border-[#f0f0f0] border-solid rounded-lg shadow-rounded overflow-hidden"
+                className="w-full h-full mt-5 border-2 border-[#f0f0f0] border-solid rounded-3xl shadow-rounded overflow-hidden"
               >
                 <video
                   src="/video/jb.mp4"

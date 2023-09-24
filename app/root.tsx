@@ -25,7 +25,7 @@ export default function App() {
         <BaseHeader />
         <Outlet />
         <BaseFooter />
-        {/* <Loader /> */}
+        <Loader />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
