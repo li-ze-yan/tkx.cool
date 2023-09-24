@@ -20,7 +20,7 @@ export default function Index() {
   const { scrollYProgress } = useScroll({
     target: windowRef,
   });
-  const rotateX = useTransform(scrollYProgress, [0.18, 1], [0, -90], {
+  const rotateX = useTransform(scrollYProgress, [0.18, 1], [0, -50], {
     ease: easeOut,
   });
   const { menu } = cons_base_header;
@@ -102,6 +102,7 @@ export default function Index() {
               transition: {
                 duration: 0.3,
                 ease: "easeOut",
+                delay: 1.8,
               },
             },
             hidden: {
@@ -209,21 +210,53 @@ export default function Index() {
               <span className="absolute top-0 left-0 w-full h-full rounded-full bg-[#53C14F] opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-linear"></span>
             </li>
           </ul>
-          <ul className="flex lg:gap-3 gap-1">
-            <li className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer">
+          <motion.ul
+            className="flex lg:gap-3 gap-1"
+            variants={{
+              show: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+              hidden: {},
+            }}
+          >
+            <motion.li
+              variants={{
+                show: {
+                  opacity: 1,
+                  y: 0,
+                },
+                hidden: {
+                  opacity: 0,
+                  y: 20,
+                },
+              }}
+              className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer"
+            >
               <img
                 src="/img/common/lightning.svg"
                 alt=""
                 className="lg:w-4 w-3 lg:h-4 h-3"
               />
-            </li>
-            <li className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer">
+            </motion.li>
+            <motion.li
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer"
+            >
               <img
                 src="/img/common/font.svg"
                 alt=""
                 className="lg:w-4 w-3 lg:h-4 h-3"
               />
-            </li>
+            </motion.li>
             <li className="lg:p-3 p-2 shadow-more-inner border-black/20 lg:rounded-xl rounded-full hover:scale-110 transition-transform duration-300 ease-linear cursor-pointer">
               <img
                 src="/img/common/picture.svg"
@@ -238,7 +271,7 @@ export default function Index() {
                 className="lg:w-4 w-3 lg:h-4 h-3"
               />
             </li>
-          </ul>
+          </motion.ul>
           <div className="pr-6">
             <ul className="flex relative">
               <div className="relative lg:translate-x-[24px] translate-x-[20px] group-hover/change:-translate-x-0 transition-transform duration-300 ease-linear">
@@ -369,7 +402,10 @@ export default function Index() {
           </div>
         </div>
       </motion.section>
-      <section className="w-full h-screen">haha</section>
+      <SafeZone>
+        <h1 className="text-5xl font-bold mt-10 text-center">haha</h1>
+      </SafeZone>
+      <section className="w-full h-screen"></section>
     </section>
   );
 }
