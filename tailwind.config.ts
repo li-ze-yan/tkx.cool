@@ -13,10 +13,25 @@ export default {
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.2)" },
         },
+        loading: {
+          "0%, 80%, 100%": {
+            boxShadow: "0 0 #fff",
+            height: "4rem",
+            backgroundColor: "#fff",
+          },
+          "40%": {
+            boxShadow: "0 -2rem #fff",
+            height: "5rem",
+            backgroundColor: "#fff",
+          },
+        },
       },
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
         rebound: "rebound 1s ease-in-out",
+        loading: "loading 1s ease-in-out infinite",
+        loadingSlow: "loading 1s 0.16s ease-in-out infinite",
+        loadingSlower: "loading 1s 0.32s ease-in-out infinite",
       },
       backgroundImage: {
         "hero-pattern": "url('/img/common/bg.jpg')",

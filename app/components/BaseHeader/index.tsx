@@ -42,7 +42,6 @@ const BaseHeader = () => {
             <motion.span
               animate={{
                 rotate: [0, -10, 10, -10, 10, 0],
-                transformOrigin: "center",
               }}
               transition={{
                 duration: 0.5,
@@ -78,8 +77,7 @@ const BaseHeader = () => {
         animate={open ? "open" : "closed"}
         className="lg:hidden block"
       >
-        <button
-          type="button"
+        <div
           onClick={() => setOpen(!open)}
           className="text-slate-500 w-8 h-8 items-center justify-center hover:text-slate-600 lg:hidden flex"
         >
@@ -125,7 +123,7 @@ const BaseHeader = () => {
                 variants={itemVariants}
                 animate={open ? "open" : "closed"}
               >
-                <p
+                <div
                   onClick={() => {
                     setOpen(false);
                     navigate(_.value);
@@ -135,7 +133,6 @@ const BaseHeader = () => {
                   <motion.div
                     animate={{
                       rotate: [0, -10, 10, -10, 10, 0],
-                      transformOrigin: "center",
                     }}
                     transition={{
                       duration: 0.5,
@@ -146,10 +143,9 @@ const BaseHeader = () => {
                     {_.emoji}
                   </motion.div>
                   {_.label}
-                </p>
+                </div>
                 {!index && (
-                  <button
-                    type="button"
+                  <div
                     className="w-8 h-8 flex items-center justify-center"
                     onClick={() => setOpen(false)}
                   >
@@ -166,12 +162,12 @@ const BaseHeader = () => {
                         strokeLinecap="round"
                       ></path>
                     </svg>
-                  </button>
+                  </div>
                 )}
               </motion.li>
             ))}
           </motion.ul>
-        </button>
+        </div>
       </motion.nav>
       <AnimatePresence>
         {open && (

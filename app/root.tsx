@@ -8,8 +8,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import styles from "./tailwind.css";
-import { BaseFooter, BaseHeader } from "./components";
-import { Suspense } from "react";
+import { BaseFooter, BaseHeader, Loader } from "./components";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
@@ -23,14 +22,13 @@ export default function App() {
         <Links />
       </head>
       <body className="px-4 sm:px-6 md:px-8 min-h-screen relative z-0 lg:text-base text-sm">
-        <Suspense fallback={null}>
-          <BaseHeader />
-          <Outlet />
-          <BaseFooter />
-          <ScrollRestoration />
-          <Scripts />
-          <LiveReload />
-        </Suspense>
+        <BaseHeader />
+        <Outlet />
+        <BaseFooter />
+        {/* <Loader /> */}
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
       </body>
     </html>
   );
